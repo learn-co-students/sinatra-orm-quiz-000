@@ -1,6 +1,14 @@
 require 'spec_helper'
 
+###############################################################################
+# References
+###############################################################################
+# Sequel lab:
 # Use https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
+###############################################################################
+# Sequel migration docs:
+# http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
+###############################################################################
 describe "migrations" do
   describe "creating tables" do
     before do
@@ -48,7 +56,6 @@ describe "migrations" do
       end
     end
 
-    # http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
     context "/04_create_homeworks.rb" do
       it "should have at least 4 columns with different types" do
         col_types = @db.schema(:homeworks).collect { |col| col.last[:db_type] }.uniq
