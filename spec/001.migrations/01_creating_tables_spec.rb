@@ -47,5 +47,12 @@ describe "migrations" do
         @db.tables.should_not include(:hamsters)
       end
     end
+
+    context "/04_create_homeworks.rb" do
+      it "should have at least 4 columns with different types" do
+        col_types = @db.schema(:homeworks).collect { |col| col.last[:db_type] }.uniq
+        (col_types.count >= 4).should == true
+      end
+    end
   end
 end
