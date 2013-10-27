@@ -1,9 +1,11 @@
+require_relative 'crowd_fundr_campaign'
+
 describe "ORMs" do
   context "a CrowdFundrCampaign model" do
     describe "adding ORM capabilities" do
       it "should subclass Sequel::Model" do
         cfc = CrowdFundrCampaign.new
-        cfc.superclass.should == Sequel::Model
+        cfc.class.superclass.should == Sequel::Model
       end
     end
 
