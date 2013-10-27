@@ -35,7 +35,17 @@ describe "migrations" do
       end
     end
 
-    it "should create a table called hamsters using the 'change' method" do
-    end 
+    context "/03_create_hamsters.rb" do
+      it "should create a table called hamsters using the 'change' method" do
+        @db.tables.should include(:hamsters)
+
+        migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
+        migration_text.match(/change do/).should_not == nil
+
+        Sequel::Migrator.run(@db, "#{@path}/01_migrations", target: 2)
+
+        @db.tables.should_not include(:hamsters)
+      end
+    end
   end
 end
