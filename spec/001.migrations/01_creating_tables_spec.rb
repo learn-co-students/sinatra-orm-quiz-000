@@ -41,25 +41,25 @@ describe "migrations" do
           @db.tables.should_not include(:dogs)
         end
       end
-    end
 
-    context "/03_create_hamsters.rb" do
-      it "should create a table called hamsters using the 'change' method" do
-        @db.tables.should include(:hamsters)
+      context "/03_create_hamsters.rb" do
+        it "should create a table called hamsters using the 'change' method" do
+          @db.tables.should include(:hamsters)
 
-        migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
-        migration_text.match(/change do/).should_not == nil
+          migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
+          migration_text.match(/change do/).should_not == nil
 
-        Sequel::Migrator.run(@db, "#{@path}/01_migrations", target: 2)
+          Sequel::Migrator.run(@db, "#{@path}/01_migrations", target: 2)
 
-        @db.tables.should_not include(:hamsters)
+          @db.tables.should_not include(:hamsters)
+        end
       end
-    end
 
-    context "/04_create_homeworks.rb" do
-      it "should have at least 4 columns with different types" do
-        col_types = @db.schema(:homeworks).collect { |col| col.last[:db_type] }.uniq
-        (col_types.count >= 4).should == true
+      context "/04_create_homeworks.rb" do
+        it "should have at least 4 columns with different types" do
+          col_types = @db.schema(:homeworks).collect { |col| col.last[:db_type] }.uniq
+          (col_types.count >= 4).should == true
+        end
       end
     end
   end
