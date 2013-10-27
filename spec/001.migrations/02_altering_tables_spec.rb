@@ -17,6 +17,13 @@ describe "migrations" do
           new_col.should_not == nil
         end
       end
+
+      context "/03_change_students_birth_date_type.rb" do
+        it "should be of type timestamp" do
+          birth_date_col = @db.schema(:students).detect { |col| col.first == :birth_date }
+          birth_date_col.last[:db_type].should == "timestamp"
+        end
+      end
     end
   end
 end

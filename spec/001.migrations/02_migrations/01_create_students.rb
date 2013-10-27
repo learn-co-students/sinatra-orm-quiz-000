@@ -4,7 +4,7 @@ Sequel.migration do
       primary_key :id
       string :firstname
       string :last_name
-      string :graduation_date
+      string :birth_date
     end
   end
 end
