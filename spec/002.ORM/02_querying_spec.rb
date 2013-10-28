@@ -35,17 +35,17 @@ describe "ORMs" do
       @c3 = CrowdFundrCampaign.create({
         name: "Oculus Rift",
         tagline: "Step Into the Game",
-        total_funding: 500,
-        funding_goal: 620000,
+        total_funding: 620000,
+        funding_goal: 500,
         starting_date: Time.new(now.year, 1, 24),
         finishing_date: Time.new(now.year+1, 8, 24)
       })
 
       @c4 = CrowdFundrCampaign.create({
-        name: "My Yoga Pro book",
+        name: "My Yoga Pro Book",
         tagline: "A revolutionary way to learn and practice yoga",
-        total_funding: 500,
-        funding_goal: 600,
+        total_funding: 600,
+        funding_goal: 500,
         starting_date: Time.new(now.year, 3, 24),
         finishing_date: Time.new(now.year+1, 12, 01)
       })
@@ -67,8 +67,8 @@ describe "ORMs" do
           book_campaigns = CrowdFundrCampaign.book_campaigns
 
           book_campaigns.count.should == 2
-          funded_campaigns.should include @c1
-          funded_campaigns.should include @c4
+          book_campaigns.should include @c1
+          book_campaigns.should include @c4
         end
       end
 
