@@ -23,10 +23,10 @@ describe Sinatra do
         }
 
         last_response.body.should == <<-eos
-          <div>
-            <h1>Gaius Baltar</h1>
-            <h2>Scientist</h1>
-          </div>
+<div>
+  <h1>Gaius Baltar</h1>
+  <h2>Scientist</h2>
+</div>
         eos
       end
     end
