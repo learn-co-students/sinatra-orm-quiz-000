@@ -8,10 +8,15 @@ describe Sinatra do
     end
 
     describe "query strings" do
-      it "should respond with the value of 'q' as the response body" do
-        get '/search?q=%73%70%69%63%79%20%63%68%69%63%6B%65%6E'
+      it "should send the value of variable search with the key 'q' to the GET /search path" do
+        search = "best rice steamer"
 
-        last_response.body.should == URI.decode('%73%70%69%63%79%20%63%68%69%63%6B%65%6E')
+        # TODO: Add a query string to this path
+        path = "/search"
+
+        get path
+
+        last_response.body.should == search.upcase 
       end
     end
 
