@@ -3,4 +3,4 @@ Bundler.require
 
 DB = Sequel.connect("sqlite://db/quiz.db")
 
-::Sequel.extension :migration
+Sequel.extension :migration
