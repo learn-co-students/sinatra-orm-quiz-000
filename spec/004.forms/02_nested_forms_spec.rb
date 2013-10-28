@@ -4,7 +4,7 @@ feature "nested forms" do
 
   context "arrays" do
     describe "lamp colors" do
-      it "should have 4 colors under the 'lamp' key" do
+      it "should have 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
         colors = ['red', 'green', 'blue', 'yellow']
 
         visit "/lamp"
