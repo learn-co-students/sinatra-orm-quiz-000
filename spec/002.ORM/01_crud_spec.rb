@@ -13,7 +13,7 @@ describe "ORMs" do
         campaign.class.superclass.should == Sequel::Model end
     end
 
-    describe "creating" do
+    describe "create" do
       it "should create a record for CrowdFundrCampaigns" do
         # TODO: Your solution goes here
 
@@ -21,7 +21,7 @@ describe "ORMs" do
       end
     end
 
-    describe "reading" do
+    describe "read" do
       it "should have readable fields" do
         name = "Soylent"
         tagline = "Free your body."
