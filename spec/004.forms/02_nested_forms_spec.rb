@@ -1,3 +1,12 @@
+require 'spec_helper'
+require_relative 'furniture_app'
+
+# Nested Forms
+#
+# Instructions:
+#
+# Edit lamp_form.erb and table_form.erb to match the specs below
+
 feature "nested forms" do
   context "views" do
     describe "table_form.erb" do

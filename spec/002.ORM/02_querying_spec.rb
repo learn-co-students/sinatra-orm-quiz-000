@@ -1,10 +1,17 @@
 describe "ORMs" do
-  ###############################################################################
-  # References
-  ###############################################################################
+
+  # Utilizing ORM Querying Functions
+  #
+  # Instructions:
+  #
+  # Edit the CrowdFundrCampaign class to make the following tests pass.
+  # You will not need to edit the tests.
+  #
+  # References:
+  #
   # Sequel querying docs:
   #  http://sequel.rubyforge.org/rdoc/files/doc/querying_rdoc.html
-  ###############################################################################
+
   context "querying" do
     before do
       @path = File.dirname(__FILE__)

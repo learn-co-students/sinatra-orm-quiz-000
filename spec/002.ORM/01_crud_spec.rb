@@ -1,18 +1,16 @@
 describe "ORMs" do
-  ###############################################################################
-  ##### Instructions ############################################################
-  ###############################################################################
-  # Insert your code in each test where it says "TODO". Do NOT modify any
-  # existing test code.
-  ###############################################################################
-  ##### References ############################################################
-  ###############################################################################
-  # Sequel lab:
-  # Use https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
-  ###############################################################################
-  # Sequel migration docs:
-  # http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
-  ###############################################################################
+
+  # Utilizing ORM functions
+  #
+  # Instructions:
+  #
+  # Insert your code in each test where it says "TODO".
+  # Do NOT modify any existing test code.
+  #
+  # References
+  # Sequel lab: https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
+  # Sequel migration docs: http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
+
   context "a CrowdFundrCampaign model" do
     before do
       @path = File.dirname(__FILE__)
@@ -24,7 +22,8 @@ describe "ORMs" do
     describe "adding ORM capabilities" do
       it "should subclass Sequel::Model" do
         campaign = CrowdFundrCampaign.new
-        campaign.class.superclass.should == Sequel::Model end
+        campaign.class.superclass.should == Sequel::Model
+      end
     end
 
     describe "create" do
@@ -53,6 +52,7 @@ describe "ORMs" do
           finishing_date: finishing_date
         })
 
+        # Hint: make an array of the attributes of your model
         row_values = []
 
         # TODO: Your solution goes here
@@ -72,16 +72,18 @@ describe "ORMs" do
         campaign_name = "Sham-Wow"
         campaign = CrowdFundrCampaign.create( name: campaign_name )
 
+        # Edit the campaign object and save it
         # TODO: Your solution goes here
 
-        CrowdFundrCampaign.first.name.should_not == campaign_name
+        CrowdFundrCampaign.first.name.should_not eq(campaign_name)
       end
     end
 
     describe "destroy" do
       it "should remove a record from the DB" do
-        campaign = CrowdFundrCampaign.create( name: 'Choppy Knife' )
+        campaign = CrowdFundrCampaign.create( name: 'Slap Chop' )
 
+        # Delete the campaign record from the database
         # TODO: Your solution goes here
 
         CrowdFundrCampaign.all.count.should == 0

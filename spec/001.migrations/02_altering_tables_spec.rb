@@ -1,6 +1,10 @@
 require 'spec_helper'
 
-# Use https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
+# TODO: fill in the migrations in 02_migrations/ to alter the tables as described below
+#       don't edit 01_create_students.rb. Remember that migrations should be additive.
+#
+#       Use https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
+
 describe "migrations" do
   describe "altering tables" do
     before do

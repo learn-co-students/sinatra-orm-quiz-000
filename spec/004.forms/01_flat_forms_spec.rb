@@ -1,6 +1,19 @@
 require 'spec_helper'
 require_relative 'furniture_app'
 
+# Forms
+#
+# Instructions:
+#
+# edit chair_form.erb and create the form required as described
+# in the spec below.
+#
+# This test will use capybara to interact with your form so
+# pay attention to the names of elements described
+#
+# TODO: create the appropriate form in chair_form.rb
+# HINT: Look at furniture_app.rb for the proper action
+
 feature "flat forms" do
   before :all do
     Capybara.app = FurnitureApp

@@ -1,36 +1,36 @@
 require 'spec_helper'
 require_relative 'test_app'
 
+# Using request data in an action
+#
+# Instructions:
+#
+# Follow the descriptions and assertions in each test.
+# Edit the test_app.rb to add the routes and actions
+# you need. You will not need to edit the tests.
+
 describe Sinatra do
   describe "params" do
     context "TestApp" do
+
       def app
         TestApp
       end
-      ###############################################################################
-      ##### Instructions ############################################################
-      ###############################################################################
-      # Modify the value of the "path" variable
-      ###############################################################################
-      describe "query strings" do
-        it "should send the value of variable search with the key 'q' to the GET /search path" do
-          search = "best%20rice%20steamer"
 
-          # TODO: Add a query string to this path
-          # Send the value of the 'search' variable with the key 'q'
+      describe "query strings" do
+        it "GET /search should accept the param 'q' in a querystring" do
+          search = "best rice steamer"
           path = "/search"
 
-          get path
+          get path, :q => search
+          last_response.body.should == search
 
-          last_response.body.should == URI.decode(search.upcase)
+          # TODO: use a querystring not a named parameter!
+          get "/search/q"
+          last_response.body.should_not be_ok
         end
       end
 
-      ###############################################################################
-      ##### Instructions ############################################################
-      ###############################################################################
-      # Add routes to test_app.rb to pass the following tests
-      ###############################################################################
       describe "POST bodies" do
         it "should process the template using the posted data" do
           post '/profile', {
@@ -38,6 +38,7 @@ describe Sinatra do
             occupation: 'Scientist'
           }
 
+          # TODO: make this route action return this html
           last_response.body.should == <<-eos
             <div>
               <h1>Gaius Baltar</h1>

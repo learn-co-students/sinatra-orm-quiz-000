@@ -1,11 +1,13 @@
 require 'spec_helper'
 require_relative 'test_app'
 
-###############################################################################
-##### Instructions ############################################################
-###############################################################################
+# Sinatra Routing
+#
+# Instructions:
+#
 # Add routes to test_app.rb to pass the following tests
-###############################################################################
+# You will not need to edit the tests
+
 describe Sinatra do
   describe "routing" do
     def app
