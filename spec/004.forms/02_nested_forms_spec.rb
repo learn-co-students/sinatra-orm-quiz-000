@@ -8,6 +8,7 @@ feature "nested forms" do
 
         visit "/table"
 
+        # Supply input IDs for the these matchers to reference.
         fill_in "name", with: name
         fill_in "wood", with: wood
         fill_in "price", with: price
@@ -28,6 +29,7 @@ feature "nested forms" do
 
         visit "/lamp"
 
+        # Supply input IDs for the these matchers to reference.
         4.times do |n|
           fill_in "color_#{n}", with: colors[n]
         end
