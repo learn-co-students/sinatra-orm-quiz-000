@@ -63,7 +63,7 @@ describe "ORMs" do
 
     describe "destroy" do
       it "should remove a record from the DB" do
-        campaign = CrowdFundrCampaign.create( name: campaign_name )
+        campaign = CrowdFundrCampaign.create( name: 'Choppy Knife' )
 
         # TODO: Your solution goes here
 
