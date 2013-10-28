@@ -1,18 +1,17 @@
 require 'spec_helper'
 require_relative 'test_app'
 
-###############################################################################
-##### Instructions ############################################################
-###############################################################################
-# Add routes to test_app.rb to pass the following tests
-###############################################################################
 describe Sinatra do
   describe "params" do
     context "TestApp" do
       def app
         TestApp
       end
-
+      ###############################################################################
+      ##### Instructions ############################################################
+      ###############################################################################
+      # Modify the value of the "path" variable
+      ###############################################################################
       describe "query strings" do
         it "should send the value of variable search with the key 'q' to the GET /search path" do
           search = "best%20rice%20steamer"
@@ -27,6 +26,11 @@ describe Sinatra do
         end
       end
 
+      ###############################################################################
+      ##### Instructions ############################################################
+      ###############################################################################
+      # Add routes to test_app.rb to pass the following tests
+      ###############################################################################
       describe "POST bodies" do
         it "should process the template using the posted data" do
           post '/profile', {
