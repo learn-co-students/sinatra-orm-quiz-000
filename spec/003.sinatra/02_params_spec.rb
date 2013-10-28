@@ -12,6 +12,7 @@ describe Sinatra do
         search = "best%20rice%20steamer"
 
         # TODO: Add a query string to this path
+        # Send the value of the 'search' variable with the key 'q'
         path = "/search"
 
         get path
