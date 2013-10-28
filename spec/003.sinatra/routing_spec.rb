@@ -25,8 +25,8 @@ describe "routing" do
       get "/zig"
       follow_redirect!
 
-      assert_equal "/zag", last_request.url
-      assert last_response.ok?
+      "http://example.org/zag".should == last_request.url
+      expect(last_response.status).to eq(200)
     end
   end
 end
