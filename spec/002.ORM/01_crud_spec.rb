@@ -1,5 +1,3 @@
-require_relative 'crowd_fundr_campaign'
-
 describe "ORMs" do
   context "a CrowdFundrCampaign model" do
     before do
