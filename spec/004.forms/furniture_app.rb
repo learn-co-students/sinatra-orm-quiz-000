@@ -9,4 +9,12 @@ class FurnitureApp < Sinatra::Base
 
     "#{name.upcase} #{description.upcase}"
   end
+
+  get '/lamp' do
+    erb :lamp_form
+  end
+
+  post '/lamp' do
+    params[:lamp][:colors].join(',')
+  end
 end
