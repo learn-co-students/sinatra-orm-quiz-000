@@ -1,6 +1,6 @@
 feature "nested forms" do
   context "hashes" do
-    context "views" do
+    context "/views/" do
       describe "table_form.erb" do
         # Expected params hash:
         # {
@@ -34,7 +34,7 @@ feature "nested forms" do
   end
 
   context "arrays" do
-    context "views" do
+    context "/views/" do
       describe "lamp colors" do
         # Expected params hash:
         # {
