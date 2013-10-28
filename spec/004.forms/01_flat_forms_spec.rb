@@ -7,6 +7,12 @@ feature "flat forms" do
   end
 
   it "should supply 'name' and 'description' fields to the POST chair route" do
+    # Expected params hash:
+    # {
+    #   name: 'Barcelona Chair',
+    #   description: 'foo'
+    # }
+
     name = "Barcelona Chair"
     description = "These are large and hard to sit in."
 

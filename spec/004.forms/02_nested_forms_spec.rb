@@ -1,6 +1,15 @@
 feature "nested forms" do
   context "hashes" do
     describe "table attributes" do
+      # Expected params hash:
+      # {
+      #   table: {
+      #     name: 'Foo',
+      #     wood: 'Maple',
+      #     price: 1000
+      #   }
+      # }
+
       it "should have 'name', 'wood', and 'price' keys under the 'table' key" do
         name = "Kitchen Table"
         wood = "Maple"
@@ -24,6 +33,13 @@ feature "nested forms" do
 
   context "arrays" do
     describe "lamp colors" do
+      # Expected params hash:
+      # {
+      #   lamp: {
+      #     colors: ['red', 'blue']
+      #   }
+      # }
+
       it "should have 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
         colors = ['red', 'green', 'blue', 'yellow']
 
