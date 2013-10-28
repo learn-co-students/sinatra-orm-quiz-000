@@ -27,7 +27,7 @@ describe "migrations" do
       end
 
       context "/02_create_dogs.rb" do
-        it "should create a table called dogs using the 'up' and 'down' methods" do
+        it "should create a 'dogs' table using the 'up' and 'down' methods" do
           DB.tables.should include(:dogs)
 
           migration_text = File.read("#{@path}/01_migrations/02_create_dogs.rb")
@@ -41,7 +41,7 @@ describe "migrations" do
       end
 
       context "/03_create_hamsters.rb" do
-        it "should create a table called hamsters using the 'change' method" do
+        it "should create a 'hamsters' using the 'change' method" do
           DB.tables.should include(:hamsters)
 
           migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
@@ -54,7 +54,7 @@ describe "migrations" do
       end
 
       context "/04_create_homeworks.rb" do
-        it "should have at least 4 columns with different types" do
+        it "should create a 'homeworks' table with at least 4 different column types" do
           col_types = DB.schema(:homeworks).collect { |col| col.last[:db_type] }.uniq
           (col_types.count >= 4).should == true
         end
