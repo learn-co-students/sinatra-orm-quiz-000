@@ -31,29 +31,28 @@ feature "nested forms" do
     end
   end
 
-    context "views" do
-      describe "lamp colors" do
-        # Expected params hash:
-        # {
-        #   lamp: {
-        #     colors: ['red', 'blue']
-        #   }
-        # }
+  context "views" do
+    describe "lamp colors" do
+      # Expected params hash:
+      # {
+      #   lamp: {
+      #     colors: ['red', 'blue']
+      #   }
+      # }
 
-        it "should have 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
-          colors = ['red', 'green', 'blue', 'yellow']
+      it "should have 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
+        colors = ['red', 'green', 'blue', 'yellow']
 
-          visit "/lamp"
+        visit "/lamp"
 
-          # Supply input IDs for the these matchers to reference.
-          4.times do |n|
-            fill_in "color_#{n}", with: colors[n]
-          end
-
-          click_button "Save"
-
-          expect(page).to have_content colors.join(',')
+        # Supply input IDs for the these matchers to reference.
+        4.times do |n|
+          fill_in "color_#{n}", with: colors[n]
         end
+
+        click_button "Save"
+
+        expect(page).to have_content colors.join(',')
       end
     end
   end
