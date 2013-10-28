@@ -1,4 +1,18 @@
 describe "ORMs" do
+  ###############################################################################
+  ##### Instructions ############################################################
+  ###############################################################################
+  # Insert your code in each test where it says "TODO". Do NOT modify any
+  # existing test code.
+  ###############################################################################
+  ##### References ############################################################
+  ###############################################################################
+  # Sequel lab:
+  # Use https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
+  ###############################################################################
+  # Sequel migration docs:
+  # http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
+  ###############################################################################
   context "a CrowdFundrCampaign model" do
     before do
       @path = File.dirname(__FILE__)

@@ -1,4 +1,10 @@
 describe "ORMs" do
+  ###############################################################################
+  # References
+  ###############################################################################
+  # Sequel querying docs:
+  #  http://sequel.rubyforge.org/rdoc/files/doc/querying_rdoc.html
+  ###############################################################################
   context "querying" do
     before do
       @path = File.dirname(__FILE__)
