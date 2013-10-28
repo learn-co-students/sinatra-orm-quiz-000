@@ -19,4 +19,14 @@ describe "routing" do
        expect(last_response.status).to eq(200)
      end
   end
+
+  describe "redirecting" do
+    it "should follow a redirect from /zig to /zag" do
+      get "/zig"
+      follow_redirect!
+
+      assert_equal "/zag", last_request.url
+      assert last_response.ok?
+    end
+  end
 end
