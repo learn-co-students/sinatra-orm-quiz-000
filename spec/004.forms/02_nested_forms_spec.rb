@@ -1,5 +1,24 @@
 feature "nested forms" do
-  describe "hashes" do
+  context "hashes" do
+    describe "table attributes" do
+      it "should have 'name', 'wood', and 'price' keys under the 'table' key" do
+        name = "Kitchen Table"
+        wood = "Maple"
+        price = 1200
+
+        visit "/table"
+
+        fill_in "name", with: name
+        fill_in "wood", with: wood
+        fill_in "price", with: price
+
+        click_button "Save"
+
+        expect(page).to have_content name.upcase
+        expect(page).to have_content wood.upcase
+        expect(page).to have_content price
+      end
+    end
   end
 
   context "arrays" do

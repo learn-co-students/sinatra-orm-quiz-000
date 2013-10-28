@@ -17,4 +17,14 @@ class FurnitureApp < Sinatra::Base
   post '/lamp' do
     params[:lamp][:colors].join(',')
   end
+
+  get '/table' do
+    erb :table_form
+  end
+
+  post '/table' do
+    table = params[:table]
+
+    "#{table[:name].upcase} #{table[:wood].upcase} #{table[:price]}"
+  end
 end
