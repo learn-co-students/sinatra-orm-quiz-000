@@ -1,5 +1,6 @@
 require 'bundler/setup'
 Bundler.require
 
-require_relative '../spec/002.ORM/crowd_fundr_campaign'
+DB = Sequel.connect("sqlite://db/quiz.db")
+
 ::Sequel.extension :migration

@@ -2,9 +2,7 @@ describe "ORMs" do
   context "a CrowdFundrCampaign model" do
     before do
       @path = File.dirname(__FILE__)
-      @db = setup_database_for_migrations(@path, 'crowd_fundr.db')
-
-      Sequel::Migrator.run @db, "#{@path}/migrations"
+      Sequel::Migrator.run DB, "#{@path}/migrations"
     end
 
     describe "adding ORM capabilities" do

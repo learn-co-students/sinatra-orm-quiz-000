@@ -16,21 +16,13 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+  config.before do
+    reset_database
+  end
 end
 
-def setup_database_for_migrations(path, database_name)
-  db = initialize_database(path, database_name)
-  reset_database(db)
-
-  db
-end
-
-def initialize_database(path, database_name)
-  Sequel.connect("sqlite://#{path}/#{database_name}")
-end
-
-def reset_database(db)
-  db.tables.each do |table|
-    db.run("DROP TABLE #{table}")
+def reset_database
+  DB.tables.each do |table|
+    DB.run("DROP TABLE #{table}")
   end
 end
