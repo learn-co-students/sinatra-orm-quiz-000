@@ -72,10 +72,10 @@ describe "ORMs" do
         end
       end
 
-      describe "::last_to_end" do
-        it "should return the campaign that's will be the last to end" do
-          last_to_end = CrowdFundrCampaign.last_to_end
-          last_to_end.should == @c4
+      describe "::latest_finish" do
+        it "should return the campaign that will be the last to end" do
+          campaign = CrowdFundrCampaign.latest_finish
+          campaign.should == @c4
         end
       end
     end
