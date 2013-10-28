@@ -6,24 +6,28 @@ feature "flat forms" do
     Capybara.app = FurnitureApp
   end
 
-  it "should supply 'name' and 'description' fields to the POST chair route" do
-    # Expected params hash:
-    # {
-    #   name: 'Barcelona Chair',
-    #   description: 'foo'
-    # }
+  context "views" do
+    describe "chair_form.erb" do
+      it "should supply 'name' and 'description' fields to the POST chair route" do
+        # Expected params hash:
+        # {
+        #   name: 'Barcelona Chair',
+        #   description: 'foo'
+        # }
 
-    name = "Barcelona Chair"
-    description = "These are large and hard to sit in."
+        name = "Barcelona Chair"
+        description = "These are large and hard to sit in."
 
-    visit "/chair"
+        visit "/chair"
 
-    fill_in "name", with: name
-    fill_in "description", with: description
+        fill_in "name", with: name
+        fill_in "description", with: description
 
-    click_button "Save"
+        click_button "Save"
 
-    expect(page).to have_content name.upcase
-    expect(page).to have_content description.upcase
+        expect(page).to have_content name.upcase
+        expect(page).to have_content description.upcase
+      end
+    end
   end
 end
