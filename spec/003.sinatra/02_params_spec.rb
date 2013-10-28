@@ -3,9 +3,9 @@ require_relative 'app'
 
 describe Sinatra do
   describe "params" do
-    context "ParamsApp" do
+    context "TestApp" do
       def app
-        ParamsApp
+        TestApp
       end
 
       describe "query strings" do

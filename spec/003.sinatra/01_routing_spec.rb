@@ -4,7 +4,7 @@ require_relative 'app'
 describe Sinatra do
   describe "routing" do
     def app
-      App
+      TestApp
     end
 
     describe "GET" do
