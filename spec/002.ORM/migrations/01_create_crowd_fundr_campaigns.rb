@@ -5,6 +5,7 @@ Sequel.migration do
       string :name
       string :tagline
       integer :funding_goal
+      integer :total_funding
       timestamp :starting_date
       timestamp :finishing_date
     end

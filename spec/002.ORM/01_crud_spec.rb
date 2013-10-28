@@ -26,12 +26,14 @@ describe "ORMs" do
         name = "Soylent"
         tagline = "Free your body."
         funding_goal = 10000000
+        total_funding = 10000000
         starting_date = Time.new(2013, 6, 15)
         finishing_date = Time.new(2013, 8, 30)
 
         campaign = CrowdFundrCampaign.create({
           name: name,
           tagline: tagline,
+          total_funding: total_funding,
           funding_goal: funding_goal,
           starting_date: starting_date,
           finishing_date: finishing_date
