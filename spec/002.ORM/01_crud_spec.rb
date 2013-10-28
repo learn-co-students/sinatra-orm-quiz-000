@@ -46,6 +46,7 @@ describe "ORMs" do
         row_values.should include(campaign.id)
         row_values.should include(name)
         row_values.should include(tagline)
+        row_values.should include(total_funding)
         row_values.should include(funding_goal)
         row_values.should include(starting_date)
         row_values.should include(finishing_date)
