@@ -3,7 +3,7 @@ Sequel.migration do
     create_table(:crowd_fundr_campaigns) do
       primary_key :id
       string :name
-      string :description
+      string :tagline
       integer :funding_goal
       timestamp :starting_date
       timestamp :finishing_date
