@@ -1,4 +1,4 @@
-class App < Sinatra::Base
+class ParamsApp < Sinatra::Base
   post '/profile' do
     erb :profile
   end

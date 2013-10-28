@@ -3,45 +3,47 @@ require_relative 'app'
 
 describe Sinatra do
   describe "params" do
-    def app
-      App
-    end
-
-    describe "query strings" do
-      it "should send the value of variable search with the key 'q' to the GET /search path" do
-        search = "best%20rice%20steamer"
-
-        # TODO: Add a query string to this path
-        # Send the value of the 'search' variable with the key 'q'
-        path = "/search"
-
-        get path
-
-        last_response.body.should == URI.decode(search.upcase)
+    context "ParamsApp" do
+      def app
+        ParamsApp
       end
-    end
 
-    describe "POST bodies" do
-      it "should process the template using the posted data" do
-        post '/profile', {
-          name: 'Gaius Baltar',
-          occupation: 'Scientist'
-        }
+      describe "query strings" do
+        it "should send the value of variable search with the key 'q' to the GET /search path" do
+          search = "best%20rice%20steamer"
 
-        last_response.body.should == <<-eos
-          <div>
-            <h1>Gaius Baltar</h1>
-            <h2>Scientist</h2>
-          </div>
-        eos
+          # TODO: Add a query string to this path
+          # Send the value of the 'search' variable with the key 'q'
+          path = "/search"
+
+          get path
+
+          last_response.body.should == URI.decode(search.upcase)
+        end
       end
-    end
 
-    describe "named parameters" do
-      it 'should return the string "Hello #{name}!"' do
-        get '/hello/Winston%20Churchill'
+      describe "POST bodies" do
+        it "should process the template using the posted data" do
+          post '/profile', {
+            name: 'Gaius Baltar',
+            occupation: 'Scientist'
+          }
 
-        last_response.body.should == 'Hello Winston Churchill!'
+          last_response.body.should == <<-eos
+            <div>
+              <h1>Gaius Baltar</h1>
+              <h2>Scientist</h2>
+            </div>
+          eos
+        end
+      end
+
+      describe "named parameters" do
+        it 'should return the string "Hello #{name}!"' do
+          get '/hello/Winston%20Churchill'
+
+          last_response.body.should == 'Hello Winston Churchill!'
+        end
       end
     end
   end
