@@ -9,14 +9,14 @@ describe Sinatra do
 
     describe "query strings" do
       it "should send the value of variable search with the key 'q' to the GET /search path" do
-        search = "best rice steamer"
+        search = "best%20rice%20steamer"
 
         # TODO: Add a query string to this path
         path = "/search"
 
         get path
 
-        last_response.body.should == search.upcase 
+        last_response.body.should == URI.decode(search.upcase)
       end
     end
 
