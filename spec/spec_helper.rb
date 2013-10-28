@@ -3,6 +3,7 @@ require_relative '../config/environment'
 ENV['RACK_ENV'] = 'test'
 
 require 'rack/test'
+require 'capybara/rspec'
 
 # These are helpers for rspec that allow us to use things like last_response
 # # in our tests. We require it at top level in spec_helper so every spec
