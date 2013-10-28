@@ -1,10 +1,10 @@
-require_relative 'crowd_fundr_campaign'
-
 describe "ORMs" do
   context "a CrowdFundrCampaign model" do
     before do
       @path = File.dirname(__FILE__)
       Sequel::Migrator.run DB, "#{@path}/migrations"
+
+      require_relative 'crowd_fundr_campaign'
     end
 
     describe "adding ORM capabilities" do
