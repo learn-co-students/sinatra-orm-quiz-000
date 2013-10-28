@@ -15,6 +15,11 @@ describe "ORMs" do
     end
 
     describe "create" do
+      it "should create a record for CrowdFundrCampaigns" do
+        # TODO: Your solution goes here
+
+        CrowdFundrCampaign.all.count.should == 1
+      end
     end
 
     describe "update" do
