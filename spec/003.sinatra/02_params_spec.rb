@@ -16,7 +16,7 @@ describe Sinatra do
     end
 
     describe "POST bodies" do
-      it "should render the template with the posted data" do
+      it "should process the template using the posted data" do
         post '/profile', {
           name: 'Gaius Baltar',
           occupation: 'Scientist'
