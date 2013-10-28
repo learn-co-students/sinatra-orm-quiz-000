@@ -1,5 +1,3 @@
-require_relative 'crowd_fundr_campaign'
-
 describe "ORMs" do
   ###############################################################################
   # References
@@ -53,7 +51,7 @@ describe "ORMs" do
       })
     end
 
-    describe CrowdFundrCampaign do
+    describe "CrowdFundrCampaign" do
       describe "::funded_campaigns" do
         it "should return a set of funded campaigns" do
           funded_campaigns = CrowdFundrCampaign.funded_campaigns
