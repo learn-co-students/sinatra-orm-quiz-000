@@ -26,7 +26,7 @@ describe "ORMs" do
         name = "Soylent"
         tagline = "Free your body."
         funding_goal = 10000000
-        total_funding = 10000000
+        total_funding = 500000
         starting_date = Time.new(2013, 6, 15)
         finishing_date = Time.new(2013, 8, 30)
 
