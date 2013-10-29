@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "ORMs" do
 
   # Utilizing ORM Querying Functions
