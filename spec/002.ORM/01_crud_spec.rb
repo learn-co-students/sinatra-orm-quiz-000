@@ -39,34 +39,21 @@ describe "ORMs" do
 
     describe "read" do
       it "should have readable fields" do
-        name = "Soylent"
-        tagline = "Free your body."
-        funding_goal = 10000000
-        total_funding = 500000
-        starting_date = Time.new(2013, 6, 15)
-        finishing_date = Time.new(2013, 8, 30)
-
         campaign = CrowdFundrCampaign.create({
-          name: name,
-          tagline: tagline,
-          total_funding: total_funding,
-          funding_goal: funding_goal,
-          starting_date: starting_date,
-          finishing_date: finishing_date
+          name: "Soylent",
+          tagline: "Free your body.",
+          total_funding: 10000000,
+          funding_goal: 500000,
+          starting_date: Time.new(2013, 6, 15),
+          finishing_date: Time.new(2013, 8, 30)
         })
 
-        # Hint: make an array of the attributes of your model
-        row_values = []
-
-        # TODO: Your solution goes here
-
-        row_values.should include(campaign.id)
-        row_values.should include(name)
-        row_values.should include(tagline)
-        row_values.should include(total_funding)
-        row_values.should include(funding_goal)
-        row_values.should include(starting_date)
-        row_values.should include(finishing_date)
+        # TODO: Get these to pass using the instance of campaign
+        expect("Soylent").to eq(__)
+        expect("Free your body.").to eq(__)
+        expect("10000000").to eq(__)
+        expect(Time.new(2013, 6, 15)).to eq(__)
+        expect(Time.new(2013, 8, 30)).to eq(__)
       end
     end
 
