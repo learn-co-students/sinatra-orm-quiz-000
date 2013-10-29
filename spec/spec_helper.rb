@@ -39,5 +39,5 @@ def reset_database
 end
 
 def __
-  "Replace the __ with code to make the test pass"
+  raise "Replace the __ with code to make the test pass"
 end
