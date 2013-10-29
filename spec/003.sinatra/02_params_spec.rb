@@ -18,7 +18,7 @@ describe Sinatra do
       describe "query strings" do
         # Query strings look like ?key=value
         # vs named params, which look like /user/:id
-        it "GET /search should accept the param 'q' in a querystring" do
+        it "GET /search should accept the keys 'q' and 'order'" do
 
           # TODO: Create a query string here!
           # Set the key "q" to "pizza"
@@ -40,6 +40,13 @@ describe Sinatra do
 
           # TODO: make this route action return this html
           last_response.body.should == "<h1>Gaius Baltar</h1><h2>Scientist</h2>"
+
+          post '/profile', {
+            name: 'Kara Thrace',
+            occupation: 'Pilot'
+          }
+
+          last_response.body.should == "<h1>Kara Thrace</h1><h2>Pilot</h2>"
         end
       end
 
