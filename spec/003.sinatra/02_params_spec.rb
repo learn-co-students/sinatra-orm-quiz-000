@@ -24,6 +24,8 @@ describe Sinatra do
           query_string = __
 
           get "/search#{query_string}"
+
+          last_response.body.should == "pizza desc"
         end
       end
 
