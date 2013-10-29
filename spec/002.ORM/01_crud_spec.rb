@@ -7,6 +7,9 @@ describe "ORMs" do
   # Insert your code in each test where it says "TODO".
   # Do NOT modify any existing test code.
   #
+  # You'll be building your ORM into the crowd_fundr_campaign.rb unit.
+  # So you'll have to edit that file to make these tests pass.
+  #
   # References
   # Sequel lab: https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
   # Sequel migration docs: http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
