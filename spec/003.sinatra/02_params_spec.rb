@@ -6,8 +6,6 @@ require_relative 'test_app'
 # Instructions:
 #
 # Follow the descriptions and assertions in each test.
-# Edit the test_app.rb to add the routes and actions
-# you need. You will not need to edit the tests.
 
 describe Sinatra do
   describe "params" do
@@ -19,15 +17,14 @@ describe Sinatra do
 
       describe "query strings" do
         it "GET /search should accept the param 'q' in a querystring" do
-          search = "best rice steamer"
-          path = "/search"
 
-          get path, :q => search
+          # TODO: Create a query string here!
+          # Set the key "q" to any value
+          query_string = __
+
+          get "/search#{query_string}"
+
           last_response.body.should == search
-
-          # TODO: use a querystring not a named parameter!
-          get "/search/q"
-          last_response.should_not be_ok
         end
       end
 
