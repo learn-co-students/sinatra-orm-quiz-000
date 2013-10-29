@@ -10,5 +10,5 @@ rack-sinatra-orm-quiz
 Fork this repository. Deliver your solution in the master branch.
 
 # Instructions
-Working from the first test to the last. Be sure to follow any instructions
+Work from the first test to the last. Be sure to follow any instructions
 left as comments in each test file.
