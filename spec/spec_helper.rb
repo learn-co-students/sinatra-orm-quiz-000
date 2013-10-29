@@ -37,7 +37,3 @@ def reset_database
     DB.run("DROP TABLE #{table}")
   end
 end
-
-def __
-  "Replace the __ with code to make the test pass"
-end
