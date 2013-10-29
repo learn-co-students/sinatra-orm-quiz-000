@@ -27,7 +27,7 @@ describe Sinatra do
 
           # TODO: use a querystring not a named parameter!
           get "/search/q"
-          last_response.body.should_not be_ok
+          last_response.should_not be_ok
         end
       end
 
