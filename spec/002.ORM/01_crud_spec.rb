@@ -49,11 +49,11 @@ describe "ORMs" do
         })
 
         # TODO: Get these to pass using the instance of campaign
-        expect("Soylent").to eq(__)
-        expect("Free your body.").to eq(__)
-        expect("10000000").to eq(__)
-        expect(Time.new(2013, 6, 15)).to eq(__)
-        expect(Time.new(2013, 8, 30)).to eq(__)
+        expect(__).to eq("Soylent")
+        expect(__).to eq("Free your body.")
+        expect(__).to eq("10000000")
+        expect(__).to eq(Time.new(2013, 6, 15))
+        expect(__).to eq(Time.new(2013, 8, 30))
       end
     end
 
