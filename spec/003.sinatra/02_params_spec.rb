@@ -19,12 +19,11 @@ describe Sinatra do
         it "GET /search should accept the param 'q' in a querystring" do
 
           # TODO: Create a query string here!
-          # Set the key "q" to any value
+          # Set the key "q" to "pizza"
+          # and the key "order" to "desc"
           query_string = __
 
           get "/search#{query_string}"
-
-          last_response.body.should == search
         end
       end
 

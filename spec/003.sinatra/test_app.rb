@@ -4,6 +4,9 @@ class TestApp < Sinatra::Base
   end
 
   get '/search' do
-    params[:q].upcase
+    raise "Incorrect value for q!" unless params[:q] == "pizza"
+    raise "Incorrect value for sort!" unless params[:sort] == "desc"
+
+    "search results..."
   end
 end
