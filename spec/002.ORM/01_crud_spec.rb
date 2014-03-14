@@ -56,6 +56,10 @@ describe "ORMs" do
     end
 
     describe "update" do
+      before do
+        CrowdFundrCampaign.destory_all
+      end
+      
       it "changes the name of the campaign" do
         campaign_name = "Sham-Wow"
         campaign = CrowdFundrCampaign.create(name: campaign_name)
