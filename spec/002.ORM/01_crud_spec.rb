@@ -57,7 +57,7 @@ describe "ORMs" do
 
     describe "update" do
       before do
-        CrowdFundrCampaign.destory_all
+        CrowdFundrCampaign.destroy_all
       end
       
       it "changes the name of the campaign" do
