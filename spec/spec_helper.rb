@@ -1,4 +1,5 @@
 require_relative '../config/environment'
+Bundler.require(:test)
 
 require 'rack/test'
 require 'capybara/rspec'
