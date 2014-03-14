@@ -11,15 +11,13 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.include Rack::Test::Methods
   config.include Capybara::DSL
-  DatabaseCleaner.strategy = :transaction
-  DatabaseCleaner.clean_with(:truncation)
 
   config.before do
-    DatabaseCleaner.clean
+    ActiveRecord::Migrator.rollback(1)
   end
 
   config.after do
-    DatabaseCleaner.clean
+    ActiveRecord::Migrator.rollback(1)
   end
 
   config.order = 'default'
