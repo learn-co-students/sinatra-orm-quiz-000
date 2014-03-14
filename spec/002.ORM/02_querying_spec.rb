@@ -13,7 +13,6 @@ describe "ORMs" do
     before(:all) do
       @path = File.dirname(__FILE__)
       @db = ActiveRecord::Base.connection
-      ActiveRecord::Migrator.migrate('db/migrate')
 
       now = Time.now
 
@@ -52,6 +51,10 @@ describe "ORMs" do
         starting_date: Time.new(now.year, 3, 24),
         finishing_date: Time.new(now.year+1, 12, 01)
       )
+    end
+
+    before do
+      ActiveRecord::Migrator.migrate('db/migrate')
     end
 
     describe "CrowdFundrCampaign" do
