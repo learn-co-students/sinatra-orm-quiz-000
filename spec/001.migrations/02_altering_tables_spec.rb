@@ -1,7 +1,7 @@
-require_relative './001_migrations_02_spec_helper'
+require 'spec_helper'
 
-# TODO: fill in the migrations in 02_migrations/ to alter the tables as described
-#       below don't edit 01_create_students.rb. Remember that migrations should
+# TODO: Fill in migrations 06 and 07 in db/migrate to alter the tables as described
+#       below. Don't edit 05_create_students.rb. Remember that migrations should
 #       be additive.
 
 describe "migrations" do
@@ -11,7 +11,7 @@ describe "migrations" do
       @db = ActiveRecord::Base.connection
     end
 
-    context "/02_rename_students_firstname.rb" do
+    context "/06_rename_students_firstname.rb" do
       before do
         ActiveRecord::Migrator.migrate('db/migrate', 6)
       end
@@ -22,7 +22,7 @@ describe "migrations" do
       end
     end
 
-    context "/03_change_students_birth_date_type.rb" do
+    context "/07_change_students_birth_date_type.rb" do
       before do
         ActiveRecord::Migrator.migrate('db/migrate', 7)
       end
