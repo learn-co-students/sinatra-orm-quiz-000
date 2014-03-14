@@ -24,11 +24,11 @@ describe Sinatra do
     end
 
     describe "redirecting" do
-      it "should follow a redirect from /zig to /zag" do
+      it "follows a redirect from /zig to /zag" do
         get "/zig"
         follow_redirect!
 
-        "http://example.org/zag".should == last_request.url
+        expect(last_request.url).to eq("http://example.org/zag")
         expect(last_response.status).to eq(200)
       end
     end
