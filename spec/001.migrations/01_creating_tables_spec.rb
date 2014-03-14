@@ -22,14 +22,14 @@ describe "migrations" do
 
     context "01_migrations" do
       context "/01_create_cats.rb" do
-        it "should create a table called cats" do
+        it "creates a table called cats" do
           #TODO: create a migration for a table called cats
           expect(@db.tables).to include("cats")
         end
       end
 
       context "/02_create_dogs.rb" do
-        it "should create a 'dogs' table using the 'up' and 'down' methods" do
+        it "creates a 'dogs' table using the 'up' and 'down' methods" do
           #TODO: create a migration to create a dogs table with an up/down method pair
           expect(@db.tables).to include("dogs")
 
@@ -44,7 +44,7 @@ describe "migrations" do
       end
 
       context "/03_create_hamsters.rb" do
-        it "should create a 'hamsters' using the 'change' method" do
+        it "creates a 'hamsters' using the 'change' method" do
           # TODO: create a migration to create a hamsters table with the change method
           @db.tables.should include("hamsters")
           migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
@@ -59,7 +59,7 @@ describe "migrations" do
       end
 
       context "/04_create_homeworks.rb" do
-        it "should create a 'homeworks' table with at least 4 different column data types" do
+        it "creates a 'homeworks' table with at least 4 different column data types" do
           # TODO: include 4 columns in your migration with 4 different types (e.g. String, Integer, DateTime, etc)
           col_types = @db.columns("homeworks").map { |col| col.type }.uniq
           expect(col_types.count >= 4).to be_true
