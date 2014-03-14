@@ -17,13 +17,12 @@ describe "migrations" do
     before do
       @path = File.dirname(__FILE__)
       @db = ActiveRecord::Base.connection
-      # ActiveRecord::Migrator.migrate("#{@path}/01_migrations")
     end
 
     context "01_migrations" do
       context "/01_create_cats.rb" do
         before do
-          ActiveRecord::Migrator.migrate("#{@path}/01_migrations", 1)
+          ActiveRecord::Migrator.migrate('db/migrate', 1)
         end
 
         it "creates a table called cats" do
@@ -34,7 +33,7 @@ describe "migrations" do
 
       context "/02_create_dogs.rb" do
         before do
-          ActiveRecord::Migrator.migrate("#{@path}/01_migrations", 2)
+          ActiveRecord::Migrator.migrate('db/migrate', 2)
         end
 
         it "creates a 'dogs' table using the 'up' and 'down' methods" do
@@ -45,7 +44,7 @@ describe "migrations" do
           expect(migration_text).to match(/up/)
           expect(migration_text).to match(/down/)
 
-          ActiveRecord::Migrator.rollback("#{@path}/01_migrations")
+          ActiveRecord::Migrator.rollback('db/migrate')
 
           expect(@db.tables).to_not include("dogs")
         end
@@ -53,7 +52,7 @@ describe "migrations" do
 
       context "/03_create_hamsters.rb" do
         before do
-          ActiveRecord::Migrator.migrate("#{@path}/01_migrations", 3)
+          ActiveRecord::Migrator.migrate('db/migrate', 3)
         end
 
         it "creates a 'hamsters' using the 'change' method" do
@@ -64,7 +63,7 @@ describe "migrations" do
           expect(migration_text).to_not match(/up/)
           expect(migration_text).to_not match(/down/)
 
-          ActiveRecord::Migrator.rollback("#{@path}/01_migrations", 2)
+          ActiveRecord::Migrator.rollback('db/migrate', 2)
 
           expect(@db.tables).to_not include("hamsters")
         end
@@ -72,7 +71,7 @@ describe "migrations" do
 
       context "/04_create_homeworks.rb" do
         before do
-          ActiveRecord::Migrator.migrate("#{@path}/01_migrations", 4)
+          ActiveRecord::Migrator.migrate('db/migrate', 4)
         end
 
         it "creates a 'homeworks' table with at least 4 different column data types" do

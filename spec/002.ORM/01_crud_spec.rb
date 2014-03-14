@@ -15,8 +15,8 @@ describe "ORMs" do
   context "a CrowdFundrCampaign model" do
     before do
       @path = File.dirname(__FILE__)
-      ActiveRecord::Migrator.migrate("#{@path}/migrations")
       @db = ActiveRecord::Base.connection
+      ActiveRecord::Migrator.migrate('db/migrate')
     end
 
     describe "adding ORM capabilities" do

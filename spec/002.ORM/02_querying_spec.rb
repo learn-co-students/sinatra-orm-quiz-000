@@ -12,8 +12,8 @@ describe "ORMs" do
   context "querying" do
     before do
       @path = File.dirname(__FILE__)
-      ActiveRecord::Migrator.migrate("#{@path}/01_migrations")
       @db = ActiveRecord::Base.connection
+      ActiveRecord::Migrator.migrate('db/migrate')
 
       now = Time.now
 
