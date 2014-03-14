@@ -11,23 +11,18 @@ describe "ORMs" do
   #
   # You'll be building your ORM into the crowd_fundr_campaign.rb unit.
   # So you'll have to edit that file to make these tests pass.
-  #
-  # References
-  # Sequel lab: https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
-  # Sequel migration docs: http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
 
   context "a CrowdFundrCampaign model" do
     before do
       @path = File.dirname(__FILE__)
-      Sequel::Migrator.run DB, "#{@path}/migrations"
-
-      require_relative 'crowd_fundr_campaign'
+      ActiveRecord::Migrator.migrate("#{@path}/migrations")
+      @db = ActiveRecord.connection
     end
 
     describe "adding ORM capabilities" do
-      it "should subclass Sequel::Model" do
+      it "should subclass ActiveRecord::Base" do
         campaign = CrowdFundrCampaign.new
-        campaign.class.superclass.should == Sequel::Model
+        expect(campaign.class.superclass).to eq(ActiveRecord::Base)
       end
     end
 
@@ -35,20 +30,20 @@ describe "ORMs" do
       it "should create a record for CrowdFundrCampaigns" do
         # TODO: Your solution goes here
 
-        CrowdFundrCampaign.all.count.should == 1
+        expect(CrowdFundrCampaign.all.count).to eq(1)
       end
     end
 
     describe "read" do
-      it "should have readable fields" do
-        campaign = CrowdFundrCampaign.create({
+      it "has readable fields" do
+        campaign = CrowdFundrCampaign.create(
           name: "Soylent",
           tagline: "Free your body.",
           total_funding: 10000000,
           funding_goal: 500000,
           starting_date: Time.new(2013, 6, 15),
           finishing_date: Time.new(2013, 8, 30)
-        })
+        )
 
         # TODO: Get these to pass
         expect(campaign.__).to eq("Soylent")
@@ -61,25 +56,25 @@ describe "ORMs" do
     end
 
     describe "update" do
-      it "should change the name of the campaign" do
+      it "changes the name of the campaign" do
         campaign_name = "Sham-Wow"
-        campaign = CrowdFundrCampaign.create( name: campaign_name )
+        campaign = CrowdFundrCampaign.create(name: campaign_name)
 
         # Edit the campaign object and save it
         # TODO: Your solution goes here
 
-        CrowdFundrCampaign.first.name.should_not eq(campaign_name)
+        expect(CrowdFundrCampaign.first.name).to_not eq(campaign_name)
       end
     end
 
     describe "destroy" do
-      it "should remove a record from the DB" do
-        campaign = CrowdFundrCampaign.create( name: 'Slap Chop' )
+      it "removes a record from the DB" do
+        campaign = CrowdFundrCampaign.create(name: 'Slap Chop')
 
         # Delete the campaign record from the database
         # TODO: Your solution goes here
 
-        CrowdFundrCampaign.all.count.should == 0
+        expect(CrowdFundrCampaign.all.count).to eq(0)
       end
     end
   end
