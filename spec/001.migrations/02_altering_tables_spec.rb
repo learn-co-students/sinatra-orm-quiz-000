@@ -8,8 +8,8 @@ require_relative './001_migrations_02_spec_helper'
 describe "migrations" do
   describe "altering tables" do
     before do
-      @path = File.dirname(__FILE__)
-      Sequel::Migrator.run DB, "#{@path}/02_migrations"
+      path = File.dirname(__FILE__)
+      ActiveRecord::Migrator.migrate("#{path}/02_migrations")
     end
 
     context "02_migrations" do

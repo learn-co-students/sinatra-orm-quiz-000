@@ -19,57 +19,54 @@ require_relative './001_migrations_01_spec_helper'
 describe "migrations" do
   describe "creating tables" do
     before do
-      # This runs your migrations for you with each test run
       @path = File.dirname(__FILE__)
-      Sequel::Migrator.run DB, "#{@path}/01_migrations"
+      ActiveRecord::Migrator.migrate("#{@path}/01_migrations")
+      @db = ActiveRecord.connection
     end
 
     context "01_migrations" do
       context "/01_create_cats.rb" do
-        it "should create a table called cats with a primary key 'id'" do
-          #TODO: create a migration for a table called cats with a primary key called id
-          DB.tables.should include(:cats)
-          column = DB.schema(:cats).first
-          column.first.should == :id
-          column.last[:primary_key].should == true
+        it "should create a table called cats" do
+          #TODO: create a migration for a table called cats
+          expect(@db.tables).to include("cats")
         end
       end
 
       context "/02_create_dogs.rb" do
         it "should create a 'dogs' table using the 'up' and 'down' methods" do
           #TODO: create a migration to create a dogs table with an up/down method pair
-          DB.tables.should include(:dogs)
+          expect(@db.tables).to include("dogs")
 
           migration_text = File.read("#{@path}/01_migrations/02_create_dogs.rb")
-          migration_text.match(/up do/).should_not == nil
-          migration_text.match(/down do/).should_not == nil
+          expect(migration_text).to match(/up/)
+          expect(migration_text).to match(/down/)
 
-          Sequel::Migrator.run(DB, "#{@path}/01_migrations", target: 1)
+          ActiveRecord::Migrator.rollback("#{@path}/01_migrations")
 
-          DB.tables.should_not include(:dogs)
+          expect(@db.tables).to_not include("dogs")
         end
       end
 
       context "/03_create_hamsters.rb" do
         it "should create a 'hamsters' using the 'change' method" do
           # TODO: create a migration to create a hamsters table with the change method
-          DB.tables.should include(:hamsters)
+          @db.tables.should include("hamsters")
           migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
-          migration_text.match(/change do/).should_not == nil
-          migration_text.match(/up do/).should == nil
-          migration_text.match(/down do/).should == nil
+          expect(migration_text).to match(/change/)
+          expect(migration_text).to_not match(/up/)
+          expect(migration_text).to_not match(/down/)
 
-          Sequel::Migrator.run(DB, "#{@path}/01_migrations", target: 2)
+          ActiveRecord::Migrator.rollback("#{@path}/01_migrations", 2)
 
-          DB.tables.should_not include(:hamsters)
+          expect(@db.tables).to_not include("hamsters")
         end
       end
 
       context "/04_create_homeworks.rb" do
         it "should create a 'homeworks' table with at least 4 different column data types" do
           # TODO: include 4 columns in your migration with 4 different types (e.g. String, Integer, DateTime, etc)
-          col_types = DB.schema(:homeworks).collect { |col| col.last[:db_type] }.uniq
-          (col_types.count >= 4).should == true
+          col_types = @db.columns("homeworks").map { |col| col.type }.uniq
+          expect(col_types.count >= 4).to be_true
         end
       end
     end
