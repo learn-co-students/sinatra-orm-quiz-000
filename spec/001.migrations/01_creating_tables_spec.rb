@@ -39,7 +39,7 @@ describe "migrations" do
         #TODO: create a migration to create a dogs table with an up/down method pair
         expect(@db.tables).to include("dogs")
 
-        migration_text = File.read("#{@path}/01_migrations/02_create_dogs.rb")
+        migration_text = File.read("db/migrate/02_create_dogs.rb")
         expect(migration_text).to match(/up/)
         expect(migration_text).to match(/down/)
 
@@ -57,7 +57,7 @@ describe "migrations" do
       it "creates a 'hamsters' using the 'change' method" do
         # TODO: create a migration to create a hamsters table with the change method
         @db.tables.should include("hamsters")
-        migration_text = File.read("#{@path}/01_migrations/03_create_hamsters.rb")
+        migration_text = File.read("db/migrate/03_create_hamsters.rb")
         expect(migration_text).to match(/change/)
         expect(migration_text).to_not match(/up/)
         expect(migration_text).to_not match(/down/)
