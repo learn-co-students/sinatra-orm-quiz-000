@@ -13,7 +13,7 @@ describe "ORMs" do
     before do
       @path = File.dirname(__FILE__)
       ActiveRecord::Migrator.migrate("#{@path}/01_migrations")
-      @db = ActiveRecord.connection
+      @db = ActiveRecord::Base.connection
 
       now = Time.now
 
