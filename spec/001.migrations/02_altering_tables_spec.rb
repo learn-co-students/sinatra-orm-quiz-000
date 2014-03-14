@@ -9,7 +9,6 @@ describe "migrations" do
     before do
       @path = File.dirname(__FILE__)
       ActiveRecord::Migrator.migrate("#{@path}/02_migrations")
-      binding.pry
       @db = ActiveRecord::Base.connection
     end
 
