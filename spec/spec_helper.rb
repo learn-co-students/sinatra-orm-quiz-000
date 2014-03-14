@@ -13,11 +13,15 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   config.before do
-    ActiveRecord::Migrator.rollback(1)
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.execute("DROP TABLE #{t}")
+    end
   end
 
   config.after do
-    ActiveRecord::Migrator.rollback(1)
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.execute("DROP TABLE #{t}")
+    end
   end
 
   config.order = 'default'
