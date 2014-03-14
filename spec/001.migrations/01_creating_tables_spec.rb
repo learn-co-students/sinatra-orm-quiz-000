@@ -12,10 +12,6 @@ require_relative './001_migrations_01_spec_helper'
 #
 # Hint: read both the English part of the spec, and each assertion to see what you need!
 
-# Resources:
-# Sequel lab: https://github.com/flatiron-school/sequel-orms-ruby-003 as reference.
-# Sequel migration docs: http://sequel.rubyforge.org/rdoc/files/doc/schema_modification_rdoc.html#label-Column+types
-
 describe "migrations" do
   describe "creating tables" do
     before do
