@@ -10,7 +10,7 @@ describe "ORMs" do
   # You will not need to edit the tests.
 
   context "querying" do
-    before do
+    before(:all) do
       @path = File.dirname(__FILE__)
       @db = ActiveRecord::Base.connection
       ActiveRecord::Migrator.migrate('db/migrate')
