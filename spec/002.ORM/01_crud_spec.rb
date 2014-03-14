@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative './002_orm_spec_helper'
 
 describe "ORMs" do
 

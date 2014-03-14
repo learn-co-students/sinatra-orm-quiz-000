@@ -1,8 +1,10 @@
+ENV["QUIZ_ENV"] ||= "development"
+
+require 'uri'
 require 'bundler/setup'
 Bundler.require
 
-require 'uri'
-
-DB = Sequel.connect("sqlite://db/quiz.db")
-
-Sequel.extension :migration
+ActiveRecord::Base.establish_connection(
+  :adapter => "sqlite3",
+  :database => "db/#{ENV['QUIZ_ENV']}.sqlite"
+)

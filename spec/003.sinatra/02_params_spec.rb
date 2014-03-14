@@ -1,5 +1,4 @@
-require 'spec_helper'
-require_relative 'test_app'
+require_relative './003_sinatra_spec_helper'
 
 # Using request data in an action
 #
@@ -10,11 +9,6 @@ require_relative 'test_app'
 describe Sinatra do
   describe "params" do
     context "TestApp" do
-
-      def app
-        TestApp
-      end
-
       describe "query strings" do
         # Query strings look like ?key=value
         # vs named params, which look like /user/:id

@@ -1,5 +1,4 @@
-require 'spec_helper'
-require_relative 'furniture_app'
+require_relative './004_forms_spec_helper'
 
 # Forms
 #

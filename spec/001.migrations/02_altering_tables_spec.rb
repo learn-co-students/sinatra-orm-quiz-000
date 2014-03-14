@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative './001_migrations_02_spec_helper'
 
 # TODO: fill in the migrations in 02_migrations/ to alter the tables as described below
 #       don't edit 01_create_students.rb. Remember that migrations should be additive.

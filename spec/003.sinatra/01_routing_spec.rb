@@ -1,5 +1,4 @@
-require 'spec_helper'
-require_relative 'test_app'
+require_relative './003_sinatra_spec_helper'
 
 # Sinatra Routing
 #
@@ -10,10 +9,6 @@ require_relative 'test_app'
 
 describe Sinatra do
   describe "routing" do
-    def app
-      TestApp
-    end
-
     describe "GET" do
      it "handles GET to /" do
         get '/'

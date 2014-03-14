@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative './001_migrations_01_spec_helper'
 
 # Creating Tables with Migrations
 #
