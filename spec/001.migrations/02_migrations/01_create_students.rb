@@ -1,10 +1,9 @@
-Sequel.migration do
-  change do
-    create_table(:students) do
-      primary_key :id
-      string :firstname
-      string :last_name
-      string :birth_date
+class CreateStudents < ActiveRecord::Migration
+  def change
+    create_table :students do |t|
+      t.string :firstname
+      t.string :last_name
+      t.string :birth_date
     end
   end
 end
