@@ -14,13 +14,9 @@ require_relative './004_forms_spec_helper'
 # HINT: Look at furniture_app.rb for the proper action
 
 feature "flat forms" do
-  before :all do
-    Capybara.app = FurnitureApp
-  end
-
   context "views" do
     describe "chair_form.erb" do
-      it "should supply 'name' and 'description' fields to the POST chair route" do
+      it "supplies 'name' and 'description' fields to the POST chair route" do
         # Expected params hash:
         # {
         #   name: 'Barcelona Chair',

@@ -18,7 +18,7 @@ feature "nested forms" do
       #   }
       # }
 
-      it "should have 'name', 'wood', and 'price' keys under the 'table' key" do
+      it "has 'name', 'wood', and 'price' keys under the 'table' key" do
         name = "Kitchen Table"
         wood = "Maple"
         price = 1200
@@ -48,7 +48,7 @@ feature "nested forms" do
       #   }
       # }
 
-      it "should have 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
+      it "has 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
         colors = ['red', 'green', 'blue', 'yellow']
 
         visit "/lamp"
