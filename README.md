@@ -1,6 +1,6 @@
 ---
   languages: ruby
-  tags: orm, active record, quiz, assessment, sinatra, tdd, migrations, forms
+  tags: orm, activerecord, quiz, assessment, sinatra, tdd, migrations, forms
 ---
 
 rack-sinatra-orm-quiz
