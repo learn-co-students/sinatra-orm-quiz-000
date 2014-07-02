@@ -56,7 +56,7 @@ describe "migrations" do
 
       it "creates a 'hamsters' using the 'change' method" do
         # TODO: create a migration to create a hamsters table with the change method
-        @db.tables.should include("hamsters")
+        expect(@db.tables).to include("hamsters")
         migration_text = File.read("db/migrate/03_create_hamsters.rb")
         expect(migration_text).to match(/change/)
         expect(migration_text).to_not match(/up/)
@@ -76,7 +76,7 @@ describe "migrations" do
       it "creates a 'homeworks' table with at least 4 different column data types" do
         # TODO: include 4 columns in your migration with 4 different types (e.g. String, Integer, DateTime, etc)
         col_types = @db.columns("homeworks").map { |col| col.type }.uniq
-        expect(col_types.count >= 4).to be_true
+        expect(col_types.count >= 4).to eq(true)
       end
     end
   end
