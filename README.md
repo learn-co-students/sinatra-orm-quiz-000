@@ -1,14 +1,10 @@
 ---
   languages: ruby
-  tags: orm, activerecord, quiz, assessment, sinatra, tdd, migrations, forms
+  tags: orm, activerecord, assessment, sinatra, tdd, migrations, forms
 ---
 
-rack-sinatra-orm-quiz
-=====================
+# Sinatra / ORM / Rack Assessment
 
-# Deliverable
-Fork this repository. Deliver your solution in the master branch.
+## Instructions
 
-# Instructions
-Work from the first test to the last. Be sure to follow any instructions
-left as comments in each test file.
+Work from the first test to the last. Be sure to follow any instructions left as comments in each test file.
