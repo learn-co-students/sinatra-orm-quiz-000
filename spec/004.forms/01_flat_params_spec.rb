@@ -26,7 +26,7 @@ feature "flat forms" do
         name = "Barcelona Chair"
         description = "These are large and hard to sit in."
 
-        visit "/chair"
+        visit "/chairs/new"
 
         fill_in "name", with: name
         fill_in "description", with: description

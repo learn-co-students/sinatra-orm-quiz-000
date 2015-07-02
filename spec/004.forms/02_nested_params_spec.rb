@@ -6,7 +6,7 @@ require_relative './004_forms_spec_helper'
 #
 # Edit lamp_form.erb and table_form.erb to match the specs below
 
-feature "nested forms" do
+feature "nested params" do
   context "views" do
     describe "table_form.erb" do
       # Expected params hash:
@@ -23,12 +23,12 @@ feature "nested forms" do
         wood = "Maple"
         price = 1200
 
-        visit "/table"
+        visit "/tables/new"
 
         # Supply input IDs for the these matchers to reference.
-        fill_in "name", with: name
-        fill_in "wood", with: wood
-        fill_in "price", with: price
+        fill_in "table[name]", with: name
+        fill_in "table[wood]", with: wood
+        fill_in "table[price]", with: price
 
         click_button "Save"
 
@@ -51,7 +51,7 @@ feature "nested forms" do
       it "has 4 colors under the 'lamp' key (use IDs to help identify the fields)" do
         colors = ['red', 'green', 'blue', 'yellow']
 
-        visit "/lamp"
+        visit "/lamps/new"
 
         # Supply input IDs for the these matchers to reference.
         4.times do |n|

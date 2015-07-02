@@ -1,28 +1,28 @@
 class FurnitureApp < Sinatra::Base
-  get '/chair' do
+  get '/chairs/new' do
     erb :chair_form
   end
 
-  post '/chair' do
+  post '/chairs' do
     name = params[:name]
     description = params[:description]
 
     "#{name.upcase} #{description.upcase}"
   end
 
-  get '/lamp' do
+  get '/lamps/new' do
     erb :lamp_form
   end
 
-  post '/lamp' do
+  post '/lamps' do
     params[:lamp][:colors].join(',')
   end
 
-  get '/table' do
+  get '/tables/new' do
     erb :table_form
   end
 
-  post '/table' do
+  post '/tables' do
     table = params[:table]
 
     "#{table[:name].upcase} #{table[:wood].upcase} #{table[:price]}"
