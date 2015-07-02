@@ -1,0 +1,6 @@
+<form action="/lamps" method="POST">
+  <% 4.times do |n| %>
+    <input type="text" name="lamp[colors][]" id="color_<%= n %>">
+  <% end %>
+  <input type="submit" value="Save">
+</form>
