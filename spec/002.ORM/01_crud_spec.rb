@@ -28,7 +28,7 @@ describe "ORMs" do
 
     describe "create" do
       it "should create a record for CrowdFundrCampaigns" do
-        # TODO: Your solution goes here
+        CrowdFundrCampaign.new.save
 
         expect(CrowdFundrCampaign.all.count).to eq(1)
       end
@@ -46,12 +46,12 @@ describe "ORMs" do
         )
 
         # TODO: Get these to pass
-        expect(campaign.__).to eq("Soylent")
-        expect(campaign.__).to eq("Free your body.")
-        expect(campaign.__).to eq(10000000)
-        expect(campaign.__).to eq(500000)
-        expect(campaign.__).to eq(Time.new(2013, 6, 15))
-        expect(campaign.__).to eq(Time.new(2013, 8, 30))
+        expect(campaign.name).to eq("Soylent")
+        expect(campaign.tagline).to eq("Free your body.")
+        expect(campaign.total_funding).to eq(10000000)
+        expect(campaign.funding_goal).to eq(500000)
+        expect(campaign.starting_date).to eq(Time.new(2013, 6, 15))
+        expect(campaign.finishing_date).to eq(Time.new(2013, 8, 30))
       end
     end
 
@@ -66,6 +66,8 @@ describe "ORMs" do
 
         # Edit the campaign object and save it
         # TODO: Your solution goes here
+        campaign.name = "Somethin else"
+        campaign.save
 
         expect(CrowdFundrCampaign.first.name).to_not eq(campaign_name)
       end
@@ -77,6 +79,7 @@ describe "ORMs" do
 
         # Delete the campaign record from the database
         # TODO: Your solution goes here
+        campaign.destroy
 
         expect(CrowdFundrCampaign.all.count).to eq(0)
       end

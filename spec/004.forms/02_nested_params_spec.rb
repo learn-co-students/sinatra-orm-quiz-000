@@ -57,7 +57,6 @@ feature "nested params" do
         4.times do |n|
           fill_in "color_#{n}", with: colors[n]
         end
-
         click_button "Save"
 
         expect(page).to have_content colors.join(',')
