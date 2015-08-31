@@ -55,7 +55,7 @@ feature "nested params" do
 
         # Supply input IDs for the these matchers to reference.
         4.times do |n|
-          fill_in "color_#{n}", with: colors[n]
+          fill_in "lamp[colors][color_#{n}]", with: colors[n]
         end
 
         click_button "Save"
