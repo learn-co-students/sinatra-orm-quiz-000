@@ -17,7 +17,7 @@ describe Sinatra do
           # TODO: Create a query string here!
           # Set the key "q" to "pizza"
           # and the key "order" to "desc"
-          query_string = __
+          query_string = '?q=pizza&order=desc'
 
           get "/search#{query_string}"
 

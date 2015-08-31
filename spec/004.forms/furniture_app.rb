@@ -15,7 +15,7 @@ class FurnitureApp < Sinatra::Base
   end
 
   post '/lamps' do
-    params[:lamp][:colors].join(',')
+    params[:lamp][:colors].values.join(',')
   end
 
   get '/tables/new' do
